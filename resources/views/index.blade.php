@@ -46,23 +46,27 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-3 mb-20">
-                <div class="mt-8">
-                   <a href="./next.php">
-                       <img src="/img/ex/ex1.png" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Seoul</a>
-                        <div class="flex items-center text-sm mt-1">
-                            <span><i class="fas fa-star text-yellow-400"></i></span>
-                            <span class="ml-1">100%</span>
-                            <span class="mx-2">|</span>
-                            <span>Jan 20, 1752</span>
-                        </div>
-                        <div class="text-sm">
-                            head office, Satisfaction No. 1, Visiting Jeongjo in the Joseon Dynasty
+                @foreach()
+                    <div class="mt-8">
+                    <a href="./next.php">
+                        <img src="/img/ex/ex1.png" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+                        </a>
+                        <div class="mt-2">
+                            <a href="#" class="text-lg mt-2 hover:text-gray:300">Seoul</a>
+                            <div class="flex items-center text-sm mt-1">
+                                <span><i class="fas fa-star text-yellow-400"></i></span>
+                                <span class="ml-1">100%</span>
+                                <span class="mx-2">|</span>
+                                <span>Jan 20, 1752</span>
+                            </div>
+                            <div class="text-sm">
+                                head office, Satisfaction No. 1, Visiting Jeongjo in the Joseon Dynasty
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
+
                 <div class="mt-8">
                    <a href="#">
                        <img src="/img/ex/ex2.png" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">

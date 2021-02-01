@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QnaController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,7 @@ Route::view('inquiry', 'inquiry');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('qna', QnaController::class)->middleware('auth');
+
+Route::resource('comment', CommentController::class)->middleware('auth');
