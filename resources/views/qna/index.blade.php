@@ -43,8 +43,7 @@ function myFunction(num) {
                 </form>
             </div>
         @endforeach
-    </ul>
-
-    
+    </ul>    
+    {!! $qnas->render() !!}
 </div>
 @endsection
