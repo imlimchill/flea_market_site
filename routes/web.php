@@ -52,13 +52,11 @@ Route::resource('products', ProductController::class)->middleware('auth');
 
 Route::post('/upload', [UploadFileController::class, 'store']);
 
-Route::get('/test', [TestController::class, 'index']);
+Route::POST('/chats', [ChatController::class, 'send']);
 
 Route::POST('/chats', [ChatController::class, 'send']);
 
-Route::get('/test', [ChatController::class, 'test']);
-
-Route::POST('/chats', [ChatController::class, 'send']);
+Route::get('/basket', [ProductCartController::class, 'index']);
 
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
