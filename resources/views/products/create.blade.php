@@ -11,17 +11,17 @@
         @csrf
         <div class="카테고리 mb-4">
             <label for="pro_tag" class="text-xl">カテゴリ</label><br>
-            <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800" type="text" name="pro_tag" id="pro_tag" list="categoriesList"><br>
+            <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800" type="text" name="pro_tag" id="pro_tag" list="categoriesList"><br>    
             <datalist id="categoriesList">
                 <option value="옷"></option>
                 <option value="음식"></option>
                 <option value="전자제품"></option>                
             </datalist>            
         </div>
-
+        
         <div class="상태 mb-4">
             <label for="pro_state" class="text-xl">商品の品質</label><br>            
-            <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800" type="text" name="pro_state" id="pro_state" list="stateList"><br>
+            <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800" type="text" name="pro_state" id="pro_state" list="stateList"><br>    
             <datalist id="stateList">
                 <option value="새거"></option>
                 <option value="중간"></option>
@@ -34,8 +34,8 @@
             <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800" type="text" name="pro_price" id="pro_price"><br>
         </div>
 
-
-
+        
+        
         <div class="타이틀 mb-4">
             <label for="pro_title" class="text-xl">投稿の名前</label><br>
             <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800 @error('pro_title') border-4 border-blue-500 @enderror" type="text" name="pro_title" id="pro_title" value="{{ old('pro_title') }}"><br>
@@ -43,8 +43,8 @@
                 <small class="text-red-500">{{ $message }}</small><br>
             @enderror
         </div>
-
-         <div class="설명 mb-2">
+        
+        <div class="설명 mb-2">
             <label for="pro_explan" class="text-xl">商品の説明</label><br>
             <textarea class="w-full px-3 py-3 border-2 border-gray-500 hover:border-gray-800 @error('pro_explan') border-4 border-blue-500 @enderror" name="pro_explan" id="pro_explan" cols="30" rows="10">{{ old('pro_explan') }}</textarea>
             @error('pro_explan')
@@ -68,8 +68,9 @@
         <div class="grid justify-items-center mt-2">
         <button class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 border border-gray-900 rounded mb-3 ">登録</button>
         </div>
+
     </form>
 </div>
 </div>
 </div>
-@endsection 
+@endsection
