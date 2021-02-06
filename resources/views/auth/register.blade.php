@@ -63,8 +63,40 @@
                             <input id="password-confirm" type="password" class="border px-3 w-max text-grey-darkest ml-6 flex items-center" name="password_confirmation" required autocomplete="new-password">
                         </div>
                     </div>
-                    <!-- name, adderss, potal?,  -->
                     <div class="border-b border-gray-600"></div>
+                    <div class="p-1 mt-4 grid justify-items-center"> ✓ 配送のため、情報をご入力ください。</div>
+                    <!-- input name -->
+                    <div class="p-1 flex flex-col md:flex-row">
+                        <label for="real_name" class="mb-2 uppercase font-bold text-xl text-grey-darkest">{{ __('本名') }}</label>
+
+                        <div>
+                            <input id="real_name" type="text" class="border px-3 w-max text-grey-darkest ml-6 flex items-center" name="real_name" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <!-- input tel -->
+                    <div class="p-1 flex flex-col md:flex-row">
+                        <label for="tel" class="mb-2 uppercase font-bold text-xl text-grey-darkest">{{ __('電話番号') }}</label>
+
+                        <div>
+                            <input id="tel" type="text" class="border px-3 w-max text-grey-darkest ml-6 flex items-center" name="tel" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <!-- input address -->
+                    <div class="p-1 flex flex-col md:flex-row">
+                        <label for="address" class="mb-2 uppercase font-bold text-xl text-grey-darkest">{{ __('住所') }}</label>
+
+                        <div>
+                            <input id="address" type="text" class="border px-3 w-max text-grey-darkest ml-6 flex items-center" name="address" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <!-- input postal code -->
+                    <div class="p-1 flex flex-col md:flex-row">
+                        <label for="postal" class="mb-2 uppercase font-bold text-xl text-grey-darkest">{{ __('郵便番号') }}</label>
+
+                        <div>
+                            <input id="postal" type="text" class="border px-3 w-max text-grey-darkest ml-6 flex items-center" name="postal" required autocomplete="new-password">
+                        </div>
+                    </div>
                     <!-- register button -->
                     <div class="p-4 grid justify-items-center">
                         <button type="submit" class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 border border-gray-900 rounded">

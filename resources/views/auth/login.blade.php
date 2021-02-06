@@ -8,7 +8,7 @@
         </div> -->
 
         <div class="grid justify-items-center mt-12 mb-12">
-            <div class="box-border w-2/5 p-4 border-2 border-gray-600 grid justify-items-center" >
+            <div class="box-border w-3/5 p-4 border-2 border-gray-600 grid justify-items-center" >
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <!-- input email -->
