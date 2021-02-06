@@ -19,7 +19,11 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('chat-component', require('./components/chat.vue').default);
+
+// 자동적으로 스크롤을 내려주는 패키지를 사용하기 위해서 가져온것
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,5 +32,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
+    // id="app"인 태그안에서는 Vue가 동작을 한다. 
     el: '#app',
 });

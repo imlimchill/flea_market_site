@@ -58,5 +58,7 @@ Route::POST('/chats', [ChatController::class, 'send']);
 
 Route::get('/test', [ChatController::class, 'test']);
 
+Route::POST('/chats', [ChatController::class, 'send']);
+
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
