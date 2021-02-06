@@ -35,11 +35,30 @@
     内容
     <div class="border p-3 my-3">{{ $product -> pro_explan }}</div>
     
-    <form action="/chats" method="POST">
-        @csrf        
-        <input type="hidden" name="user_name" value="{{ $user -> name }}">
-        <input type="hidden" name="user_id" value="{{ $user -> id }}">        
-        <input type="submit">
-    </form>
+    @if( $user -> id != auth()->id() )
+        <div class="flex">
+            <div class="flex-grow"></div>
+            <div class="flex-none ml-2">
+                <form action="/chats" method="POST">
+                    @csrf                
+                    <input type="hidden" name="user_id" value="{{ $user -> id }}">        
+                    <input class="bg-blue-300 px-2 py-1 " type="submit" value="1第1チャット">
+                </form>
+            </div>
+            <div class="flex-none ml-2">
+                <form action="/#" method="POST">
+                    @csrf                
+                    <input type="hidden" name="user_id" value="{{ $user -> id }}">       
+                    <input class="bg-blue-300 px-2 py-1" type="submit" value="購入">
+                </form>
+            </div>
+            <div class="flex-none ml-2">
+                <form action="/#" method="POST">
+                    @csrf                                
+                    <input class="bg-blue-300 px-2 py-1" type="submit" value="購入カート">
+                </form>            
+            </div>
+        </div>
+    @endif
 </div>
 @endsection
