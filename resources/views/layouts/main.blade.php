@@ -34,7 +34,7 @@
                         <a href="/basket" class="hover:text-gray-500">購入カート</a>
                     </li>
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="inquiry" class="hover:text-gray-500">問い合わせ</a>
+                        <a href="http://localhost:8000/qna" class="hover:text-gray-500">問い合わせ</a>
                     </li>
                 </ul>
                 <!-- logo -->
@@ -83,13 +83,14 @@
                 </ul>
             </div>
     </nav>
-    <div class="h-screen">        
+    <!-- <div class="h-screen">         -->
         @yield('content')    
-    </div>
+    <!-- </div> -->
 
-    <div>
+    <div class="mt-12">
         @include('layouts.footer')
     </div>
+    
     
 </body>
 

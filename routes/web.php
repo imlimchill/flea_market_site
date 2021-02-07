@@ -28,8 +28,6 @@ Route::view('/', 'home');
 Route::view('show', 'show');
 Route::view('agree', 'agree');
 Route::view('basket', 'basket');
-Route::view('inquiry', 'inquiry');
-Route::view('gmail', 'emails/gmail');
 // old version code
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -57,8 +55,6 @@ Route::POST('/chats', [ChatController::class, 'send']);
 Route::POST('/chats', [ChatController::class, 'send']);
 
 Route::get('/basket', [ProductCartController::class, 'index']);
-
-Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');

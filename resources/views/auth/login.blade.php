@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container mx-auto px-4 pt-16">
+<div class="container mx-auto px-4 pt-16 h-screen">
     <div class="popular-movies">
         <!-- <div class="border-b-4 border-gray-600">
             <h2 class="text-3xl text-gray-800 font-mono">{{ __('ログイン') }}</h2>
