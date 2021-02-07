@@ -58,5 +58,7 @@ Route::POST('/chats', [ChatController::class, 'send']);
 
 Route::get('/basket', [ProductCartController::class, 'index']);
 
+Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
+
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
