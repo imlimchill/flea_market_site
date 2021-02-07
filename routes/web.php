@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ProductCartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::POST('/chats', [ChatController::class, 'send']);
 Route::POST('/chats', [ChatController::class, 'send']);
 
 Route::get('/basket', [ProductCartController::class, 'index']);
+
+Route::POST('/basket', [ProductCartController::class, 'store']);
+
+Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');

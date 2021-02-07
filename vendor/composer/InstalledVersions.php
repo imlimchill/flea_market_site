@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a1cf87fce42a34edf4aa499dbde721684d8490ff',
+    'reference' => '5649857043d8f66e3d09feb3c4818752112c8ed6',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -445,6 +445,15 @@ private static $installed = array (
         0 => 'v8.24.0',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -468,7 +477,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a1cf87fce42a34edf4aa499dbde721684d8490ff',
+      'reference' => '5649857043d8f66e3d09feb3c4818752112c8ed6',
     ),
     'laravel/sail' => 
     array (
@@ -606,6 +615,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5',
+    ),
+    'paragonie/random_compat' => 
+    array (
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
+    ),
+    'paragonie/sodium_compat' => 
+    array (
+      'pretty_version' => 'v1.14.0',
+      'version' => '1.14.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a1cfe0b21faf9c0b61ac0c6188c4af7fd6fd0db3',
     ),
     'phar-io/manifest' => 
     array (
@@ -822,6 +849,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '6f990c19f91729de8b31e639d6e204ea59f19cf3',
+    ),
+    'pusher/pusher-php-server' => 
+    array (
+      'pretty_version' => 'v4.1.5',
+      'version' => '4.1.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '251f22602320c1b1aff84798fe74f3f7ee0504a9',
     ),
     'ralouphie/getallheaders' => 
     array (
