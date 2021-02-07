@@ -3,9 +3,6 @@
 @section('content')
 <div class="px-64 mt-4">
     <div class="flex">
-        <a href="/products" class="flex-1">
-            <h1 class="font-bold text-3xl">detail Item</h1>
-        </a>
         @if (auth()->id() == $product -> user_id)
             <a href="/tasks/{{ $product -> id }}/edit">
                 <button class="flex-initial bg-green-500 px-4 py-2 mx-2 text-white hover:bg-green-300">Edit</button>
@@ -19,9 +16,13 @@
         @endif
     </div>
 
-    タイトル : {{ $product -> pro_title }} <small class="float-right">created_at {{ $product -> created_at }}</small><br>
+    
+    <div class="text-3xl font-momo font-bold ml-8">< {{ $product -> pro_title }} ></div> 
+    <small class="float-right">カテゴリー {{ $product -> pro_tag }}</small><br>
+    <small class="float-right">created_at {{ $product -> created_at }}</small><br>
     <small class="float-right">updated_at {{ $product -> updated_at }}</small><br>
     <small class="float-right">著者 {{ $user->name }}</small><br>
+
 
     写真
     <div class="border p-3 my-3 w-2/4"><img src="{{ $photos -> url }}"></div>
@@ -30,7 +31,7 @@
     価格
     <div class="border p-3 my-3">{{ $product -> pro_price }}</div>
     内容
-    <div class="border p-3 my-3">{{ $product -> pro_explan }}</div>
+    <div class="border p-3 my-3 " style="white-space:pre;">{{ $product -> pro_explan }}</div>
     
     @if( $product -> user_seq != auth()->id() )
         <div class="flex">

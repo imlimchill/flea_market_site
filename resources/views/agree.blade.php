@@ -16,7 +16,7 @@
             <div class="grid mt-3 mb-10">
                 <div class="mt-8">
                     <div class="mt-2">
-                        <a href="#" class="border-b border-gray-800 text-xl mt-2 hover:text-gray:300">A　個人情報保護方針</a>
+                        <div class="border-b border-gray-800 text-xl mt-2 hover:text-gray:300">A　個人情報保護方針</div>
 
                         <div class="overflow-auto h-40 mt-4 border-2 p-2">
                             <div class="text-lg">1．関連法令・ガイドライン等の遵守</div>
@@ -53,7 +53,7 @@
             <div class="grid mt-3 mb-10">
                 <div class="mt-8">
                     <div class="mt-2">
-                        <a href="#" class="border-b border-gray-800 text-xl mt-2 hover:text-gray:300">B　Cookie（クッキー）ポリシー</a>
+                        <div class="border-b border-gray-800 text-xl mt-2 hover:text-gray:300">B　Cookie（クッキー）ポリシー</div>
 
                         <div class="overflow-auto h-40 mt-4 border-2 p-2">
                             <div class="text-lg">1．Cookieの利用</div>

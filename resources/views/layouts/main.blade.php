@@ -26,15 +26,15 @@
         
             <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between px-4 py-6">
                 <!-- menu -->
-                <ul class="flex flex-col md:flex-row items-cneter py-8 text-gray-700">
+                <ul class="flex flex-col md:flex-row items-cneter py-8">
                     <li class="md:ml-6 mt-3 md:mt-0">
-                        <a href="agree" class="hover:text-gray-500">item 1</a>
+                        <a href="agree" class="text-gray-700 hover:text-gray-500">item 1</a>
                     </li>
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="/basket" class="hover:text-gray-500">購入カート</a>
+                        <a href="/basket" class="text-gray-700 hover:text-gray-500">購入カート</a>
                     </li>
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="http://localhost:8000/qna" class="hover:text-gray-500">問い合わせ</a>
+                        <a href="http://localhost:8000/qna" class="text-gray-700 hover:text-gray-500">問い合わせ</a>
                     </li>
                 </ul>
                 <!-- logo -->
@@ -48,11 +48,11 @@
 
                 
                 <!-- login, 会員登録　などの　ボタン -->
-                <ul class="flex flex-col md:flex-row items-cneter py-8 text-gray-700">
+                <ul class="flex flex-col md:flex-row items-cneter py-8">
                 @guest
                     @if (Route::has('login'))
                         <li class="md:ml-19 mt-3 md:mt-0">
-                            <a href="{{ route('login') }}" class="hover:text-gray-500">ログイン</a>
+                            <a href="{{ route('login') }}" class="text-gray-700 hover:text-gray-500">ログイン</a>
                         </li>
                     @endif
                     <li class="md:ml-5 mt-3 md:mt-0">
@@ -61,13 +61,13 @@
 
                     @if (Route::has('register'))
                         <li class="md:ml-5 md:mr-12 mt-3 md:mt-0">
-                            <a href="{{ route('register') }}" class="hover:text-gray-500">会員登録</a>
+                            <a href="{{ route('register') }}" class="text-gray-700 hover:text-gray-500">会員登録</a>
                         </li>
                     @endif
                 @else
                     {{ Auth::user()->name }}
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="{{ route('logout') }}" class="hover:text-gray-500" 
+                        <a href="{{ route('logout') }}" class="text-gray-700 hover:text-gray-500" 
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">ログアウト</a>
                     </li>
@@ -77,7 +77,7 @@
                     </form>
 
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="#" class="hover:text-gray-500">マイページ</a>
+                        <a href="#" class="text-gray-700 hover:text-gray-500">マイページ</a>
                     </li>
                 @endguest
                 </ul>
