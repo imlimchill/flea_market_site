@@ -10,27 +10,32 @@ class UserController extends Controller
 {
   public function admin()
   {
-    $users = User::get(); //User = model
+    $user = User::get(); //User = model
 
     return view('management.admin', [
       'user' => $users]);
   }
 
-  public function index()
-  {
-    $users = User::get(); //User = model
-
-    return view('management.admin', [
-      'user' => $users]);
+  public function index(){
+    $users = User::orderBy('name','desc')->get();
+    return view('member.index',[
+      'users' => $users
+    ]);
   }
 
-  public function show($name){
-    $users = User::find($name);
-    return view('member.management', compact('member'));
+  public function show($member){
+    $user=User::find($member);
+
+    return view('member.show',[
+      'user' => $user
+    ]);
   }
 
-  public function edit($name){
-    $users = User::find($name);
-    return view('member.edit',compact('member'));
+  public function destroy($member){
+    $user = User::find($member);
+    dd($user);
+    // $user->delete();
+    // return redirect()->route('mamber.index');
+
   }
 }

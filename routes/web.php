@@ -8,6 +8,7 @@ use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,8 @@ Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
+
+// route::get('/member/', [UserController::class, 'UserController@index'])->name('member.index');
+// route::get('/member/{nema}', [UserController::class, 'UserController@show'])->name('member.show');
+// route::get('/member/{nema}', [UserController::class, 'UserController@destroy'])->name('member.destroy');
+Route::resource('member', UserController::class);
