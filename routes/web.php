@@ -74,3 +74,6 @@ Route::resource('member', UserController::class);
 Route::get('/review', function () {
     return view('review.index');
 });
+
+//mypage
+Route::resource('mypage', MypageController::class)->middleware('auth');
