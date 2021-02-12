@@ -69,3 +69,8 @@ Route::get('/mail', 'App\Http\Controllers\MailController@send');
 // route::get('/member/{nema}', [UserController::class, 'UserController@show'])->name('member.show');
 // route::get('/member/{nema}', [UserController::class, 'UserController@destroy'])->name('member.destroy');
 Route::resource('member', UserController::class);
+
+//review
+Route::get('/review', function () {
+    return view('review.index');
+});
