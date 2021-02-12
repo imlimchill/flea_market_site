@@ -77,7 +77,7 @@
                     </form>
                     @if(Auth::user()->grade == 'common')
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="#" class="text-gray-700 hover:text-gray-500">マイページ</a>
+                        <a href="/mypage" class="text-gray-700 hover:text-gray-500">マイページ</a>
                     </li>
                     @elseif(Auth::user()->grade == 'admin')
                     <li class="md:ml-10 mt-3 md:mt-0">
