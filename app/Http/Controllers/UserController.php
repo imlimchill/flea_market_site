@@ -33,9 +33,8 @@ class UserController extends Controller
 
   public function destroy($member){
     $user = User::find($member);
-    dd($user);
-    // $user->delete();
-    // return redirect()->route('mamber.index');
+    $user->delete();
+    return redirect('member');
 
   }
 }

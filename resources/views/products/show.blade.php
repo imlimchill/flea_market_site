@@ -21,7 +21,7 @@
     <small class="float-right">カテゴリー {{ $product -> pro_tag }}</small><br>
     <small class="float-right">created_at {{ $product -> created_at }}</small><br>
     <small class="float-right">updated_at {{ $product -> updated_at }}</small><br>
-    <small class="float-right">著者 {{ $user->name }}</small><br>
+    <small class="float-right">著者 <a href="../member/{{$user->id}}">{{ $user->name }}</a></small><br>
 
 
     写真

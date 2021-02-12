@@ -75,10 +75,15 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-
+                    @if(Auth::user()->grade == 'common')
                     <li class="md:ml-10 mt-3 md:mt-0">
                         <a href="#" class="text-gray-700 hover:text-gray-500">マイページ</a>
                     </li>
+                    @elseif(Auth::user()->grade == 'admin')
+                    <li class="md:ml-10 mt-3 md:mt-0">
+                        <a href="/member" class="text-gray-700 hover:text-gray-500">admin</a>
+                    </li>
+                    @endif
                 @endguest
                 </ul>
             </div>
