@@ -3,12 +3,15 @@
 @section('content')
 <div class="px-64 mt-4">
     <div class="flex">
-        @if (auth()->id() == $product -> user_id)
-            <a href="/tasks/{{ $product -> id }}/edit">
+        <a href="/products" class="flex-1">
+            <h1 class="font-bold text-3xl">detail Item</h1>
+        </a>
+        @if (auth()->id() == $product -> user_seq)
+            <a href="/products/{{ $product -> id }}/edit">
                 <button class="flex-initial bg-green-500 px-4 py-2 mx-2 text-white hover:bg-green-300">Edit</button>
             </a>
         
-            <form action="/tasks/{{ $product -> id }}" method="POST">
+            <form action="/products/{{ $product -> id }}" method="POST">
                 @method('delete')
                 @csrf
                 <button class="flex-initial bg-red-500 px-4 py-2 text-white hover:bg-red-300">Delete</button>

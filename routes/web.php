@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerRegistrationController;
 use App\Http\Controllers\QnaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,5 +63,19 @@ Route::POST('/basket', [ProductCartController::class, 'store']);
 
 Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
+Route::get('/sellerRg', [SellerRegistrationController::class, 'index']);
+
+Route::post('/sellerRg/update', [SellerRegistrationController::class, 'update']);
+
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
+
+Route::resource('member', UserController::class);
+
+//review
+Route::get('/review', function () {
+    return view('review.index');
+});
+
+//mypage
+Route::resource('mypage', MypageController::class)->middleware('auth');
