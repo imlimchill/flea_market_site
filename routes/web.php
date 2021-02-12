@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerRegistrationController;
 use App\Http\Controllers\QnaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
@@ -62,12 +63,13 @@ Route::POST('/basket', [ProductCartController::class, 'store']);
 
 Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
+Route::get('/sellerRg', [SellerRegistrationController::class, 'index']);
+
+Route::post('/sellerRg/update', [SellerRegistrationController::class, 'update']);
+
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
 
-// route::get('/member/', [UserController::class, 'UserController@index'])->name('member.index');
-// route::get('/member/{nema}', [UserController::class, 'UserController@show'])->name('member.show');
-// route::get('/member/{nema}', [UserController::class, 'UserController@destroy'])->name('member.destroy');
 Route::resource('member', UserController::class);
 
 //review

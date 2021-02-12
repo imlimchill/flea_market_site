@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container mx-auto px-4 pt-16 h-screen">
+    <div class="container mx-auto px-4 pt-16">
         <div class="popular-movies">
             <div class="grid grid-cols-12">
                 <h2 class="uppercase tracking-wider text-orange-700 text-lg font-semibold">ALL</h2>
@@ -34,7 +34,7 @@
                             @endif
                         @endforeach
                         <div class="mt-2">
-                            <p class="text-lg mt-2 text-gray:800 hover:text-gray:300">{{ $product -> pro_title }}</p>
+                            <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $product -> pro_title }}</a>
                             <div class="flex items-center text-sm mt-1">
                                 <span><i class="fas fa-star text-yellow-400"></i></span>
                                 <span class="ml-1">{{ $product -> pro_price }}</span>
