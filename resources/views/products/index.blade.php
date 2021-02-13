@@ -41,7 +41,7 @@
                                 <span class="mx-2">|</span>
                                 <span><small>{{ $product -> created_at }}</small></span>
                             </div>
-                            <div class="text-sm">
+                            <div class="text-sm truncate md:overflow-clip">
                                 {{ $product -> pro_explan }}
                             </div>
                         </div>

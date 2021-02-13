@@ -80,8 +80,11 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $categories = Categories::all();
+
         return view('products.edit', [
-            'product' => $product
+            'product' => $product,
+            'categories' => $categories
         ]);
     }
 
