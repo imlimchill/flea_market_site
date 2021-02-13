@@ -27,9 +27,6 @@
             <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between px-4 py-6">
                 <!-- menu -->
                 <ul class="flex flex-col md:flex-row items-cneter py-8">
-                    <li class="md:ml-6 mt-3 md:mt-0">
-                        <a href="agree" class="text-gray-700 hover:text-gray-500">item 1</a>
-                    </li>
                     <li class="md:ml-10 mt-3 md:mt-0">
                         <a href="/basket" class="text-gray-700 hover:text-gray-500">購入カート</a>
                     </li>
