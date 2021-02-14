@@ -3,8 +3,7 @@
 @section('content')
     <div class="container mx-auto px-4 pt-16 h-screen">
         <div class="popular-movies">
-            <div class="grid grid-cols-12">
-                <h2 class="uppercase tracking-wider text-orange-700 text-lg font-semibold">ALL</h2>
+            <div class="grid grid-cols-12">                
                 @foreach ($Categories as $category)
                     <a href="/products/category/{{ $category -> category }}">
                         <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold">{{ $category->category }}</h2>    
@@ -17,16 +16,19 @@
             
             <div class="flex flex-col md:flex-row items-center">
                 <div class="relative mt-3 md:mt-6">
-                    <input type="text" class="bg-gray-400 rounded-full w-64 pl-8 px-4 py-1 focus:outline-none focus:shadow-outline" placeholder="Search">
-                    <div class="absolute top-0">                                
-                        <i class="fas fa-search mt-2 ml-3"></i>
-                    </div>
+                    <form action="/products/search" method="POST">
+                        @csrf
+                        <input type="text" class="bg-gray-400 rounded-full w-64 pl-8 px-4 py-1 focus:outline-none focus:shadow-outline" placeholder="Search" name="search">
+                        <div class="absolute top-0">                                
+                            <i class="fas fa-search mt-2 ml-3"></i>
+                        </div>
                 </div>
-                <div class="md:ml-4 mt-3 md:mt-0">
-                    <a href="#">
-                        <!-- <img src="/img/avatar.png" alt="avatar" class="rounded-full w-8 h-8">  -->
-                    </a>
-                </div>
+                        <div class="md:ml-4 mt-3 md:mt-0">
+                            <button>
+                                <img src="/img/logo.png" alt="avatar" class="rounded-full w-8 h-8">
+                            </button>                    
+                        </div>
+                    </form>
             </div>            
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-3 mb-20">               

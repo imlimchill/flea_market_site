@@ -119,6 +119,29 @@ class ProductController extends Controller
 
     public function filter($category)
     {
-        return view('products.index');
+        if($category == "all")
+        {
+            $products = Product::OrderBy('created_at', 'desc') -> paginate(8); 
+        }else{
+            $products = Product::where('pro_tag', $category)->OrderBy('created_at', 'desc') -> paginate(8);            
+        }
+
+        $Categories = Categories::get();
+        
+        return view('products.index', [
+            'products' => $products,            
+            'Categories' => $Categories     
+        ]);
+    }
+
+    public function search(Request $request)
+    {        
+        $products = Product::where('pro_title', 'like', '%' . $request->search . '%')->OrderBy('created_at', 'desc') -> paginate(8);
+        $Categories = Categories::get();        
+        
+        return view('products.index', [
+            'products' => $products,            
+            'Categories' => $Categories            
+        ]);
     }
 }
