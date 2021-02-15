@@ -27,9 +27,6 @@
             <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between px-4 py-6">
                 <!-- menu -->
                 <ul class="flex flex-col md:flex-row items-cneter py-8">
-                    <li class="md:ml-6 mt-3 md:mt-0">
-                        <a href="agree" class="text-gray-700 hover:text-gray-500">item 1</a>
-                    </li>
                     <li class="md:ml-10 mt-3 md:mt-0">
                         <a href="/basket" class="text-gray-700 hover:text-gray-500">購入カート</a>
                     </li>
@@ -75,9 +72,9 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                    @if(Auth::user()->grade == 'common')
+                    @if(Auth::user()->grade == 'common' || Auth::user()->grade == 'seller')
                     <li class="md:ml-10 mt-3 md:mt-0">
-                        <a href="#" class="text-gray-700 hover:text-gray-500">マイページ</a>
+                        <a href="/mypage" class="text-gray-700 hover:text-gray-500">マイページ</a>
                     </li>
                     @elseif(Auth::user()->grade == 'admin')
                     <li class="md:ml-10 mt-3 md:mt-0">

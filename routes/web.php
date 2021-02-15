@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerRegistrationController;
 use App\Http\Controllers\QnaController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
@@ -50,6 +51,10 @@ Route::resource('comment', CommentController::class)->middleware('auth');
 
 Route::resource('products', ProductController::class)->middleware('auth');
 
+Route::get('/products/category/{category}', [ProductController::class, 'filter']);
+
+Route::POST('/products/search', [ProductController::class, 'search']);
+
 Route::post('/upload', [UploadFileController::class, 'store']);
 
 Route::POST('/chats', [ChatController::class, 'send']);
@@ -62,24 +67,19 @@ Route::POST('/basket', [ProductCartController::class, 'store']);
 
 Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
 
+Route::get('/sellerRg', [SellerRegistrationController::class, 'index']);
+
+Route::post('/sellerRg/update', [SellerRegistrationController::class, 'update']);
+
 // for mail
 Route::get('/mail', 'App\Http\Controllers\MailController@send');
 
-// route::get('/member/', [UserController::class, 'UserController@index'])->name('member.index');
-// route::get('/member/{nema}', [UserController::class, 'UserController@show'])->name('member.show');
-// route::get('/member/{nema}', [UserController::class, 'UserController@destroy'])->name('member.destroy');
 Route::resource('member', UserController::class);
 
 //review
-Route::get('/reviews', function () {
-    return view('reviews.index');
+Route::get('/review', function () {
+    return view('review.index');
 });
 
-Route::get('/review', 'ReviewController@index');
-Route::get('/review/create', 'ReviewController@create');
-Route::post('/review','ReviewController@store');
-Route::get('/review/{review}', 'ReviewController@show');
-Route::get('/review/{review}/edit', 'ReviewController@edit');
-Route::put('/review/{review}', 'ReviewController@update');
-Route::delete('/review/{review}', 'ReviewController@destroy');
-
+//mypage
+Route::resource('mypage', MypageController::class)->middleware('auth');

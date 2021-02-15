@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQnasTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateQnasTable extends Migration
      */
     public function up()
     {
-        Schema::create('qnas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->longText('body');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->bigincrements('id');
+            $table->string('category');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,6 +27,6 @@ class CreateQnasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qnas');
+        Schema::dropIfExists('categories');
     }
 }

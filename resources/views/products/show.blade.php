@@ -3,12 +3,15 @@
 @section('content')
 <div class="px-64 mt-4">
     <div class="flex">
-        @if (auth()->id() == $product -> user_id)
-            <a href="/tasks/{{ $product -> id }}/edit">
+        <a href="/products" class="flex-1">
+            <h1 class="font-bold text-3xl">detail Item</h1>
+        </a>
+        @if (auth()->id() == $product -> user_seq)
+            <a href="/products/{{ $product -> id }}/edit">
                 <button class="flex-initial bg-green-500 px-4 py-2 mx-2 text-white hover:bg-green-300">Edit</button>
             </a>
         
-            <form action="/tasks/{{ $product -> id }}" method="POST">
+            <form action="/products/{{ $product -> id }}" method="POST">
                 @method('delete')
                 @csrf
                 <button class="flex-initial bg-red-500 px-4 py-2 text-white hover:bg-red-300">Delete</button>
@@ -21,7 +24,7 @@
     <small class="float-right">カテゴリー {{ $product -> pro_tag }}</small><br>
     <small class="float-right">created_at {{ $product -> created_at }}</small><br>
     <small class="float-right">updated_at {{ $product -> updated_at }}</small><br>
-    <small class="float-right">著者 <a href="../member/{{$user->id}}">{{ $user->name }}</a></small><br>
+    <small class="float-right">著者 {{ $user->name }}</small><br>
 
 
     写真
