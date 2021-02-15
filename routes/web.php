@@ -10,6 +10,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,14 +83,15 @@ Route::resource('mypage', MypageController::class)->middleware('auth');
 
 
 //review
-Route::get('/reviews', function () {
-    return view('reviews.index');
-});
+Route::resource('review', ReviewController::class)->middleware('auth');
+// Route::get('/review', function () {
+//     return view('review.index');
+// });
 
-Route::get('/review', 'ReviewController@index');
-Route::get('/review/create', 'ReviewController@create');
-Route::post('/review','ReviewController@store');
-Route::get('/review/{review}', 'ReviewController@show');
-Route::get('/review/{review}/edit', 'ReviewController@edit');
-Route::put('/review/{review}', 'ReviewController@update');
-Route::delete('/review/{review}', 'ReviewController@destroy');
+// Route::get('/review', 'ReviewController@index');
+// Route::post('/review/create', [ReviewController::class, 'create']);
+// Route::post('/review',[ReviewController::class, 'store']);
+// Route::get('/review/{review}', 'ReviewController@show');
+// Route::get('/review/{review}/edit', 'ReviewController@edit');
+// Route::put('/review/{review}', 'ReviewController@update');
+// Route::delete('/review/{review}', 'ReviewController@destroy');

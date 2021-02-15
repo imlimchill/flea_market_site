@@ -28,7 +28,6 @@
 
 
     写真
-    <div class="border p-3 my-3 w-2/4"><img src="{{ $photos -> url }}"></div>
     状態
     <div class="border p-3 my-3">{{ $product -> pro_state }}</div>
     価格

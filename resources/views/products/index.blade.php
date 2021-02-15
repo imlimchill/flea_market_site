@@ -35,8 +35,7 @@
                 @foreach($products as $product)
                     <div class="mt-8">
                         <a href="/products/{{ $product -> id }}">                            
-                            <img src="{{ $product ->photo->url }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                        </a>
+
                         <div class="mt-2">
                             <p class="text-lg mt-2 text-gray:800 hover:text-gray:300">{{ $product -> pro_title }}</p>
                             <div class="flex items-center text-sm mt-1">
@@ -49,6 +48,7 @@
                                 {{ $product -> pro_explan }}
                             </div>
                         </div>
+                        </a>
                     </div>
                 @endforeach                
             </div>

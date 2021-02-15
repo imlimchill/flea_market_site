@@ -18,8 +18,10 @@
                     <div class="text-3xl">郵便番号 : <span class="fond-bold">{{$user->postal}}</span></div>
                 </div>
             </div>
+            
         </div>
     </div>
+    <div>
     <form action="/member/{{ $user -> id }}" method="POST">
             @method('delete')
             @csrf
@@ -28,6 +30,12 @@
                 <button class="bg-gray-700 hover:bg-gray-900 text-white text-2xl font-bold py-2 px-4 border border-gray-900 rounded mb-3 mt-3">会員削除</button>
             </div>
     </form>
+    <form action="/review/create" method="POST">
+                @csrf
+                <input type="hidden" name="user_id" value="{{$user -> id}}">
+                <button>Create Review</button>
+    </form>
+    </div>
 </div>
 
 @endsection

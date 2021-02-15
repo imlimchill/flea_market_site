@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="/reviews" method="POST">
+    <form action="/review" method="POST">
         @csrf
         <label for="title">제목</label>
         <p><input type="text" name="title" id="title"></p>
