@@ -18,7 +18,6 @@ class CreateReviewsTable extends Migration
             $table->string('title');
             $table->longText('story');
             $table->timestamps();
-
         });
     }
 
