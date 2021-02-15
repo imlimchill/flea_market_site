@@ -10,7 +10,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\MypageController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,3 +84,5 @@ Route::get('/review', function () {
 
 //mypage
 Route::resource('mypage', MypageController::class)->middleware('auth');
+
+Route::post('/order', [OrderController::class, 'store'])->middleware('auth');

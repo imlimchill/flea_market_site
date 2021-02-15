@@ -47,9 +47,9 @@
                 </form>
             </div>
             <div class="flex-none ml-2">
-                <form action="/#" method="POST">
+                <form action="/order" method="POST">
                     @csrf                
-                    <input type="hidden" name="user_id" value="{{ $user -> id }}">       
+                    <input type="hidden" name="product_id" value="{{ $product -> id }}">       
                     <input class="bg-blue-300 px-2 py-1" type="submit" value="購入">
                 </form>
             </div>
