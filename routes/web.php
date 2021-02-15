@@ -69,7 +69,7 @@ Route::get('/basket', [ProductCartController::class, 'index']);
 
 Route::POST('/basket', [ProductCartController::class, 'store']);
 
-Route::DELETE('/basket/{basket}', [ProductCartController::class, 'destroy']);
+Route::DELETE('/basket/delete', [ProductCartController::class, 'destroy']);
 
 Route::get('/sellerRg', [SellerRegistrationController::class, 'index']);
 
@@ -93,3 +93,5 @@ Route::post('/review/create/{user_id}', [ReviewController::class, 'create']);
 Route::post('/review/{user_id}', [ReviewController::class, 'store']); 
 
 Route::post('/order', [OrderController::class, 'store'])->middleware('auth');
+
+Route::delete('/basket/buy', [OrderController::class, 'cartstore'])->middleware('auth');

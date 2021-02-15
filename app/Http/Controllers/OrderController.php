@@ -53,8 +53,30 @@ class OrderController extends Controller
 
         return redirect()->back();
 
-        
-            
             
         }
+
+        public function cartstore(Request $request)
+    {
+        for($i=0; $i<count($request->product_id); $i++)
+        {
+            $order = Order::create([
+                'user_id' => auth()-> id(),
+                'product_id'=> $request->product_id[$i]
+            ]); 
+            
+
+        }
+        // $values = request([
+        //     'product_id'=>$request->product_id[0]
+        // ]);    
+        // $values['user_id'] = auth() -> id();
+        // $order = Order::create($values);        
+        // return redirect()->back();
+        // dd(count($request->product_id));
+
+        
+        return redirect()->back();
+               
+    }
 }
