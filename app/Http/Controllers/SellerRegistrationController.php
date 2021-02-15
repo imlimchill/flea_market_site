@@ -29,9 +29,9 @@ class SellerRegistrationController extends Controller
          
         $user = User::find(auth()->id());
 
-        if($user['level'] != "seller")
+        if($user['grade'] != "seller")
         {
-            $user['level'] = "seller";
+            $user['grade'] = "seller";
             $user -> update();
             emotify('success', '販売者登録を成功しました。');
 

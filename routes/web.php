@@ -10,8 +10,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\MypageController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\OrderController;
 
 /*
@@ -27,7 +28,7 @@ use App\Http\Controllers\OrderController;
 
 // TODO i use 'home.blade.php'. but, I want use 'index.blade.php'
 // TODO so i must be understand laraval's structre!!
-Route::view('/', 'home');
+Route::get('/', [HomeController::class, 'index']);
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -48,11 +49,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('qna', QnaController::class)->middleware('auth');
+Route::resource('qna', QnaController::class);
 
-Route::resource('comment', CommentController::class)->middleware('auth');
+Route::resource('comment', CommentController::class);
 
-Route::resource('products', ProductController::class)->middleware('auth');
+Route::resource('products', ProductController::class);
 
 Route::get('/products/category/{category}', [ProductController::class, 'filter']);
 
@@ -83,21 +84,12 @@ Route::resource('member', UserController::class);
 //mypage
 Route::resource('mypage', MypageController::class)->middleware('auth');
 
-<<<<<<< HEAD
+// Route::resource('review', ReviewController::class);
 
-//review
-Route::resource('review', ReviewController::class)->middleware('auth');
-// Route::get('/review', function () {
-//     return view('review.index');
-// });
+Route::get('/review/{user_id}', [ReviewController::class, 'index']);
 
-// Route::get('/review', 'ReviewController@index');
-// Route::post('/review/create', [ReviewController::class, 'create']);
-// Route::post('/review',[ReviewController::class, 'store']);
-// Route::get('/review/{review}', 'ReviewController@show');
-// Route::get('/review/{review}/edit', 'ReviewController@edit');
-// Route::put('/review/{review}', 'ReviewController@update');
-// Route::delete('/review/{review}', 'ReviewController@destroy');
-=======
+Route::post('/review/create/{user_id}', [ReviewController::class, 'create']);
+
+Route::post('/review/{user_id}', [ReviewController::class, 'store']); 
+
 Route::post('/order', [OrderController::class, 'store'])->middleware('auth');
->>>>>>> 83f6e40a6268c4ca983502a4350067dc03e75d02

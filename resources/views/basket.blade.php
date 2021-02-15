@@ -36,7 +36,7 @@
                         <form action="/basket/{{ $product_info_in_carts[$i] -> id }}" method="POST">
                             @method('delete')
                             @csrf
-                            <input type="checkbox" name="pro_seq[]" value="{{ $product_info_in_carts[$i] -> id }}">                                             
+                            <input type="checkbox" name="product_id[]" value="{{ $product_info_in_carts[$i] -> id }}">                                             
                     </div>
                     <div class="p-4 col-start-2 col-end-4">
                     <a href="/products/{{ $product_info_in_carts[$i] -> id }}">
@@ -44,9 +44,9 @@
                     </a>
                     </div>
                     <div class="col-start-5 col-end-8 inline-block align-middle ">
-                        <div class="text-lg mt-2 hover:text-gray:300">{{ $product_info_in_carts[$i] -> pro_title }}</div>
+                        <div class="text-lg mt-2 hover:text-gray:300"><strong>{{ $product_info_in_carts[$i] -> pro_title }}</strong></div>
                         <div class="flex items-center text-sm mt-1">
-                            <span class="ml-1">상태 : <strong>{{ $product_info_in_carts[$i] -> pro_state}}</strong></span>
+                            <span class="ml-1">{{ $product_info_in_carts[$i] -> pro_state}}</span>
                             <span class="mx-2">|</span>
                             <span><small>{{ $product_info_in_carts[$i] -> created_at }}</small></span>
                         </div>
@@ -59,9 +59,10 @@
                     </div>
                 </div>
                 <div class="invisible">{{ $total_price += $product_info_in_carts[$i] -> pro_price }}</div>                    
-            @endfor            
+            @endfor   
                         <input class="ml-6 mb-10 bg-gray-700 hover:bg-gray-900 text-white font-bold py-1 px-2 border border-gray-900 rounded" type="submit" value="削除">                            
-                    </form>   
+                    </form>          
+                          
                         
             
 

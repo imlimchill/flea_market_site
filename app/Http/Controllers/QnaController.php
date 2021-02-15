@@ -10,14 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class QnaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
+    
     public function index()
     {   
-        $qnas = Qna::OrderBy('created_at', 'desc') -> paginate(5);
-        $comments = Comment::get();
+        $qnas = Qna::OrderBy('created_at', 'desc') -> paginate(5);        
 
         return view('qna.index', [
-            'qnas' => $qnas,
-            'comments' => $comments
+            'qnas' => $qnas            
         ]);
     }
 
@@ -40,10 +43,11 @@ class QnaController extends Controller
     {   
         request() -> validate([
             'title' => 'required',
-            'body'  => 'required'            
+            'body'  => 'required',
+            'text_type' => 'required'           
         ]);
 
-        $values = request(['title','body']);
+        $values = request(['title', 'body', 'text_type']);
         $values['user_id'] = auth() -> id();
         $qna = Qna::create($values);
 
@@ -74,4 +78,6 @@ class QnaController extends Controller
 
         return redirect('/qna');
     }
+
+
 }

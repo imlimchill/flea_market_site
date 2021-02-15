@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Qna;
+use App\Models\Product;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -44,4 +47,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
+    public function Qnas()
+    {
+        return $this->hasMany(Qna::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
+    public function Qnaowns(Qna $qna)
+    {
+        return auth()->id() == $qna->id;
+    }
+
+    public function Productowns(Product $product)
+    {
+        return auth()->id() == $product->user_id;
+    }
 }

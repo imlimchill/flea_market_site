@@ -118,8 +118,17 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{$order->product->created_at}}
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        {{-- <form action="/review/index" method="POST">            
+                                            @csrf
+                                            <div class="grid justify-items-center mt-3">
+                                                <input type="hidden" name="user_id" value="{{$order->product->user_id}}">      
+                                                <button class="bg-gray-700 hover:bg-gray-900 text-white text-2xl font-bold py-2 px-4 border border-gray-900 rounded mb-3 mt-3">Review</button>
+                                            </div>
+                                        </form> --}}
+                                        <a href="/review/{{ $order->product->user_id}}" class="bg-gray-700 hover:bg-gray-900 text-white text-2xl font-bold py-2 px-4 border border-gray-900 rounded mb-3 mt-3">Review</a>
+                                    </td>
                                 </tr>
-
                                 <!-- More items... -->
                                 @endforeach
                             </tbody>
