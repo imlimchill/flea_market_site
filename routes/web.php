@@ -76,10 +76,20 @@ Route::get('/mail', 'App\Http\Controllers\MailController@send');
 
 Route::resource('member', UserController::class);
 
-//review
-Route::get('/review', function () {
-    return view('review.index');
-});
 
 //mypage
 Route::resource('mypage', MypageController::class)->middleware('auth');
+
+
+//review
+Route::get('/reviews', function () {
+    return view('reviews.index');
+});
+
+Route::get('/review', 'ReviewController@index');
+Route::get('/review/create', 'ReviewController@create');
+Route::post('/review','ReviewController@store');
+Route::get('/review/{review}', 'ReviewController@show');
+Route::get('/review/{review}/edit', 'ReviewController@edit');
+Route::put('/review/{review}', 'ReviewController@update');
+Route::delete('/review/{review}', 'ReviewController@destroy');
