@@ -10,7 +10,9 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReviewController;
+
+use App\Http\Controllers\MypageController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +83,7 @@ Route::resource('member', UserController::class);
 //mypage
 Route::resource('mypage', MypageController::class)->middleware('auth');
 
+<<<<<<< HEAD
 
 //review
 Route::resource('review', ReviewController::class)->middleware('auth');
@@ -95,3 +98,6 @@ Route::resource('review', ReviewController::class)->middleware('auth');
 // Route::get('/review/{review}/edit', 'ReviewController@edit');
 // Route::put('/review/{review}', 'ReviewController@update');
 // Route::delete('/review/{review}', 'ReviewController@destroy');
+=======
+Route::post('/order', [OrderController::class, 'store'])->middleware('auth');
+>>>>>>> 83f6e40a6268c4ca983502a4350067dc03e75d02

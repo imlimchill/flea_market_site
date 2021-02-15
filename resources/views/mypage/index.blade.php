@@ -75,7 +75,7 @@
                                         商品名
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        商品説明
+                                        カテゴリ
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         状態
@@ -84,66 +84,63 @@
                                         値段
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        お届け日
+                                        注文の日
                                     </th>
                                 </tr>
                             </thead>
+
                             <tbody class="bg-white divide-y divide-gray-200">
+                            @foreach($orders as $order)
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img class="h-10 w-10 rounded-full" src="" alt="">
+                                                <img class="h-10 w-10 rounded-full" src="{{$order->product->photo->url}}" alt="">
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">
-                                                    핑크퐁
+                                                    {{$order->product->pro_title}}
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">살아있는게 신기한 아이임 고대유물이 될 예정</div>
+                                        <div class="text-sm text-gray-900">{{$order->product->pro_tag}}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            上이고 싶다
+                                        {{$order->product->pro_state}}
                                         </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        겁나 비싸
+                                    {{$order->product->pro_price}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                       언젠가는 갈 예정
+                                    {{$order->product->created_at}}
                                     </td>
                                 </tr>
 
                                 <!-- More items... -->
+                                @endforeach
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
             </div>
         </div>
         <br>
-        <div class="ml-3 inline-flex rounded-md shadow">
-        
-        </div>
-        <span>
             <div class="ml-3 inline-flex rounded-md shadow">
                 <a href="agree" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
                     販売者登録
                 </a>
             </div>
-        </span>
+            <br>
         <form action="mypage/{{$user->id}}" method="POST">
             @method('DELETE')
             @csrf
-                <div class="ml-3 inline-flex rounded-md shadow">
-                    
-                        <input type="submit" vaule="delete" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
-                    
-    
+                <div class="ml-3 inline-flex rounded-md shadow">    
+                    <input type="submit" vaule="delete" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
                 </div>
         </form>  
     </div>
