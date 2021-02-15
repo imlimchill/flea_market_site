@@ -72,7 +72,7 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                    @if(Auth::user()->grade == 'common')
+                    @if(Auth::user()->grade == 'common' || Auth::user()->grade == 'seller')
                     <li class="md:ml-10 mt-3 md:mt-0">
                         <a href="/mypage" class="text-gray-700 hover:text-gray-500">マイページ</a>
                     </li>

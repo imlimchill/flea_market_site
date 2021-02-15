@@ -8,16 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-  public function admin()
-  {
-    $user = User::get(); //User = model
-
-    return view('management.admin', [
-      'user' => $users]);
-  }
-
   public function index(){
-    $users = User::orderBy('name','desc')->get();
+    $users = User::OrderBy('name', 'desc') -> paginate(5);
     return view('member.index',[
       'users' => $users
     ]);
