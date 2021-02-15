@@ -2,79 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Review;
-
+use App\Models\Review;
+use App\Models\User;
+use App\Models\Product;
 
 class ReviewController extends Controller
 {
-    public function index()
-    {   
-        $reviews = Review::OrderBy('created_at', 'desc') -> paginate(5);
 
-        return view('reivew.index', [
+    public function index($user_id)
+    {
+        $reviews = Review::where("user_id", $user_id)->get();
+
+        return view('review.index', [
             'reviews' => $reviews,
+            'user_id' => $user_id
+        ]);
+
+    }
+
+
+    public function create($user_id)
+    {       
+        return view('review.create', [
+            'user_id' => $user_id
         ]);
     }
 
-    public function create(){
-        return view('review.create');
-
-    }
-    
-    // public function store(Request $request){
-    //     $review = Review::create([
-    //         'title'=>$request->input('title'),
-    //         'story'=>$request->input('story')
-    //     ]);
-    //     return redirect('/review',$review->id);
-    // }
-
-    public function store()
-    {   
-        request() -> validate([
+    public function store($user_id)
+    {
+        request()->validate([
             'title' => 'required',
-            'body'  => 'required'            
+            'story' => 'required'
         ]);
+        // $user = User::where('id', $user_id)->get();
+        // $product = Product::find($user_id);
 
-        $values = request(['title','body']);
-        $values['user_id'] = auth() -> id();
+        $values=request(['title', 'story']);
+        $values['user_id'] = $user_id;
+
         $review = Review::create($values);
 
-        return redirect('/review');
+        return redirect('review/'.$user_id);
     }
-
-    public function show(Review $review)
-    {   
-        $user = User::find($review->id);
-        
-        return view('review.show', [
-            'review' => $qna,
-            'user' => $user
-        ]);
-    }
-
-    public function edit(Review $review)
-    {
-        abort_unless(auth()->user()->Qnaowns($review), 403);
-
-        return view('review.edit', [
-            'review' => $qna
-        ]);
-    }
-
-    public function update(Review $review){
-
-        $review->update(request(['title', 'story']));
-        return redirect('/review/'.$review->id);
-    }
-
-    public function destroy(Review $review){
-
-        $board->delete();
-        return redirect('/review');
-    }
-
-
-
 }

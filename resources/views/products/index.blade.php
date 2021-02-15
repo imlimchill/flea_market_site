@@ -8,10 +8,16 @@
                     <a href="/products/category/{{ $category -> category }}">
                         <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold">{{ $category->category }}</h2>    
                     </a>
-                @endforeach                            
-                <a href="/products/create">
-                    <button class= "bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 border border-gray-900">製品登録</button>
-                </a>
+                @endforeach
+                <div class="col-start-12">
+                    @if(auth()->user())
+                        @if ( auth()->user()->grade != 'common')
+                            <a href="/products/create">
+                                <button class= "bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 border border-gray-900">製品登録</button>
+                            </a>
+                        @endif
+                    @endif                                    
+                </div>
             </div>
             
             <div class="flex flex-col md:flex-row items-center">
@@ -25,7 +31,7 @@
                 </div>
                         <div class="md:ml-4 mt-3 md:mt-0">
                             <button>
-                                <img src="/img/logo.png" alt="avatar" class="rounded-full w-8 h-8">
+                                <img src="/img/search.png" alt="avatar" class="rounded-full w-8 h-8">
                             </button>                    
                         </div>
                     </form>
@@ -35,7 +41,8 @@
                 @foreach($products as $product)
                     <div class="mt-8">
                         <a href="/products/{{ $product -> id }}">                            
-
+                            <img src="{{ $product ->photo->thumbnail_url }}" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
+                        </a>
                         <div class="mt-2">
                             <p class="text-lg mt-2 text-gray:800 hover:text-gray:300">{{ $product -> pro_title }}</p>
                             <div class="flex items-center text-sm mt-1">
@@ -48,7 +55,6 @@
                                 {{ $product -> pro_explan }}
                             </div>
                         </div>
-                        </a>
                     </div>
                 @endforeach                
             </div>

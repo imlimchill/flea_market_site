@@ -14,7 +14,9 @@
                     <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800 @error('pro_tag') border-4 border-blue-500 @enderror" type="text" name="pro_tag" id="pro_tag" list="categoriesList" value="{{ old('pro_tag') }}"><br>    
                     <datalist id="categoriesList">
                         @foreach($categories as $category)
-                            <option value="{{ $category -> category }}"></option>                            
+                            @if ($category -> category != "all")
+                                <option value="{{ $category -> category }}"></option>                          
+                            @endif                            
                         @endforeach               
                     </datalist>  
                     @error('pro_tag')
@@ -26,9 +28,10 @@
                     <label for="pro_state" class="text-xl">商品の品質</label><br>            
                     <input class="w-full px-3 py-1 border-2 border-gray-500 hover:border-gray-800 @error('pro_state') border-4 border-blue-500 @enderror" type="text" name="pro_state" id="pro_state" list="stateList" value="{{ old('pro_state') }}"><br>    
                     <datalist id="stateList">
-                        <option value="새거"></option>
-                        <option value="중간"></option>
-                        <option value="낡음"></option>                
+                        <option value="新品未使用"></option>
+                        <option value="未使用に近い"></option>
+                        <option value="目立った傷や汚れなし"></option>                
+                        <option value="目立った傷や汚れある"></option> 
                     </datalist>
                     @error('pro_state')
                         <small class="text-red-500">{{ $message }}</small><br>
